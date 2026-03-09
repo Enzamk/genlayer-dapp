@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { createClient } from 'genlayer-js'
-import { localnet } from 'genlayer-js/chains'
+import { studionet } from 'genlayer-js/chains'
 import { privateKeyToAccount } from 'viem/accounts'
 
-const privateKey = '0x422ddc857dfe9163119ff671b6240c0dc580bd02520225a2931a7cdfee33a707' as `0x${string}`
+const privateKey = import.meta.env.VITE_PRIVATE_KEY as `0x${string}`
 const account = privateKeyToAccount(privateKey)
-
-const client = createClient({ chain: localnet, account })
+const client = createClient({ chain: studionet, account })
 const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS as `0x${string}`
 
 const storage = ref('')
