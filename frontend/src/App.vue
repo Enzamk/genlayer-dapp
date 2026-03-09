@@ -23,7 +23,7 @@ async function fetchStorage() {
       args: [],
       account: account.address,
     })
-    storage.value = JSON.stringify(result)
+    storage.value = String(result)
   } catch (e: any) {
     storage.value = 'Error: ' + e.message
   } finally {
